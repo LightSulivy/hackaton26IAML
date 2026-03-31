@@ -82,6 +82,7 @@ Ensemble LightGBM + CatBoost + Random Forest avec threshold optimal sur OOF.
 **Améliorations vs baseline :**
 - Missing threshold à 70% (vs 80%) — plus de features conservées
 - Features NaN : `feat_nb_missing_total/labo/exam/quest/pct` ajoutées par patient
+- `features_metadata.csv` : colonne variable = `SAS` (pas `Variable Name`)
 - Class imbalance : `scale_pos_weight` (LGB), `class_weights` (CatBoost), `balanced` (RF)
 - `n_estimators` LGB : 2000 avec early stopping (vs 500)
 - Threshold optimisé sur OOF (recherche sur [0.20, 0.70]) au lieu de 0.5 fixe
