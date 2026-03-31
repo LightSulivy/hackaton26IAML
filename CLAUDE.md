@@ -84,9 +84,11 @@ Ensemble LightGBM + CatBoost + Random Forest avec threshold optimal sur OOF.
 - Features NaN : `feat_nb_missing_total/labo/exam/quest/pct` ajoutées par patient
 - `features_metadata.csv` : colonne variable = `SAS` (pas `Variable Name`)
 - Class imbalance : `scale_pos_weight` (LGB), `class_weights` (CatBoost), `balanced` (RF)
-- `n_estimators` LGB : 2000 avec early stopping (vs 500)
-- Threshold optimisé sur OOF (recherche sur [0.20, 0.70]) au lieu de 0.5 fixe
-- Averaging des probabilités : poids 40% LGB / 40% CatBoost / 20% RF
+- **Optuna** : 50 trials sur LightGBM (learning_rate, num_leaves, min_child_samples, subsample, colsample_bytree, reg_alpha, reg_lambda)
+- **Poids d'ensemble optimisés** par Nelder-Mead sur OOF
+- **Stacking** : meta-learner LogisticRegression sur OOF des 3 modèles
+- Threshold optimisé sur OOF (recherche sur [0.20, 0.70])
+- Choix automatique entre averaging et stacking selon F1 OOF
 
 Soumission générée : `G1_2.csv`
 
