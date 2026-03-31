@@ -90,6 +90,16 @@ Ensemble LightGBM + CatBoost + Random Forest avec threshold optimal sur OOF.
 
 Soumission générée : `G1_2.csv`
 
+## AutoGluon notebook (`autogluon.ipynb`)
+
+Exploration automatique de tous les modèles + stacking multi-niveaux, optimisé directement sur F1.
+
+- `presets='best_quality'` + `num_bag_folds=5` + `num_stack_levels=2`
+- `TIME_LIMIT=3600` (1h) — augmenter pour de meilleurs résultats
+- Modèles sauvegardés dans `autogluon_models/` (git-ignoré)
+- Soumission : `G1_3.csv`
+- Rechargement sans réentraîner : `TabularPredictor.load('autogluon_models')`
+
 ## Dépendances
 
-`requirements.txt` inclut : `lightgbm`, `catboost`, `optuna`, `scikit-learn`, `imbalanced-learn`
+`requirements.txt` inclut : `lightgbm`, `catboost`, `optuna`, `scikit-learn`, `imbalanced-learn`, `autogluon.tabular`
