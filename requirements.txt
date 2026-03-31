@@ -10,3 +10,5 @@ lightgbm
 xgboost
 imbalanced-learn
 tqdm
+catboost
+optuna
